@@ -8,6 +8,7 @@ What is changed compared to original version
 ^^^^^^^^^^^
 
 Using generator to read wordlist without loading it to RAM (in original version I had an OutOfMemory exception with large wordlist-files every time);
+
 Using gevent-library instead of threading;
 
 Removed stats like "passwords per second" and "estimated time" 'coz don't use original's task_queue - have to fix it someday.
