@@ -4,6 +4,13 @@ wpbf!
 
 wpbf is a bruteforce tool to remotely test password strength, username enumeration and plugin detection on a WordPress site.
 
+What is changed compared to original version
+^^^^^^^^^^^
+
+Using generator to read wordlist without loading it to RAM (in original version I had an OutOfMemory exception with large wordlist-files every time);
+Using gevent-library instead of threading;
+Removed stats like "passwords per second" and "estimated time" 'coz don't use original's task_queue - have to fix it someday.
+
 Description
 ^^^^^^^^^^^
 
@@ -42,10 +49,12 @@ Requirements
 ^^^^^^^^^^^^
 
 * Python 2.6+ (maybe it runs in older versions, if you want to test please notify me)
+* gevent library (https://pypi.python.org/pypi/gevent)
 
 Known issues
 ^^^^^^^^^^^^
 * False positives (in all passwords) with some uncommon WordPress versions or configurations
+* Memory leaks (like 50-100kb per minute)
 
 Usage
 ^^^^^
